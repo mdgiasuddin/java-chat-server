@@ -2,8 +2,8 @@ import java.io.*;
 import java.net.Socket;
 
 public class ChatClient {
-    private String hostName;
-    private int port;
+    private final String hostName;
+    private final int port;
     private String userName;
 
     public ChatClient(String hostName, int port) {
@@ -47,12 +47,10 @@ public class ChatClient {
 }
 
 class ReadThread extends Thread {
-    private Socket socket;
-    private ChatClient chatClient;
+    private final ChatClient chatClient;
     private BufferedReader bufferedReader;
 
     public ReadThread(Socket socket, ChatClient chatClient) {
-        this.socket = socket;
         this.chatClient = chatClient;
 
         try {
@@ -81,8 +79,8 @@ class ReadThread extends Thread {
 
 class WriteThread extends Thread {
 
-    private Socket socket;
-    private ChatClient chatClient;
+    private final Socket socket;
+    private final ChatClient chatClient;
     private PrintWriter printWriter;
 
     public WriteThread(Socket socket, ChatClient chatClient) {

@@ -7,9 +7,9 @@ import java.util.Set;
 import static java.lang.System.exit;
 
 public class ChatServer {
-    private int port;
-    private Set<String> userNames = new HashSet<>();
-    private Set<UserThread> userThreads = new HashSet<>();
+    private final int port;
+    private final Set<String> userNames = new HashSet<>();
+    private final Set<UserThread> userThreads = new HashSet<>();
 
     public ChatServer(int port) {
         this.port = port;
@@ -74,8 +74,8 @@ public class ChatServer {
 }
 
 class UserThread extends Thread {
-    private Socket socket;
-    private ChatServer chatServer;
+    private final Socket socket;
+    private final ChatServer chatServer;
     private PrintWriter printWriter;
 
     public UserThread(Socket socket, ChatServer chatServer) {
